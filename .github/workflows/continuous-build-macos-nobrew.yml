@@ -1,4 +1,4 @@
-name: Continuous Build MacOS
+name: Continuous Build MacOS Nobrew
 
 on:
   workflow_dispatch:
