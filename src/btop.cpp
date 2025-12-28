@@ -90,7 +90,7 @@ namespace Global {
 		{"#801414", "██████╔╝   ██║   ╚██████╔╝██║        ╚═╝    ╚═╝"},
 		{"#000000", "╚═════╝    ╚═╝    ╚═════╝ ╚═╝"},
 	};
-	const string Version = "1.4.5";
+	const string Version = "1.4.6";
 
 	int coreCount;
 	string overlay;
@@ -225,7 +225,10 @@ void clean_quit(int sig) {
 	Gpu::Rsmi::shutdown();
 #endif
 
-	Config::write();
+
+	if (Config::getB("save_config_on_exit")) {
+		Config::write();
+	}
 
 	if (Term::initialized) {
 		Input::clear();
